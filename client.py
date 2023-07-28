@@ -55,7 +55,7 @@ class Client(object):
                     loss = loss1 + (self.conf["alpha"] / 2) * loss2
                     loss.backward()
                     optimizer.step()
-                if self.conf["fedPKR"] == 2:
+                elif self.conf["fedPKR"] == 2:
                     feature, output = self.local_model(data)
                     feature_glo, _ = global_model(data)
                     loss1 = torch.nn.functional.cross_entropy(output, target)
